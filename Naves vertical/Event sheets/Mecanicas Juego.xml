@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Mecanicas Juego</name>
+    <events>
+        <variable constant="0" name="TiempoDisparo" sid="8722501392253207" static="0" type="number">0.2</variable>
+        <include>Logica juego</include>
+        <event-block sid="1341068005347781">
+            <conditions>
+                <condition id="2" name="Is in touch" sid="274802754728996" type="Touch" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6333918791044257">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="8749889832648961" type="System">
+                            <param id="0" name="Interval (seconds)">dt</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7967448862803347" type="Function">
+                            <param id="0" name="Name">&quot;Move Towards&quot;</param>
+                            <param id="1" name="Parameter {n}">Touch.X{###}Touch.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7707166720182236">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7003040135048751" type="System">
+                            <param id="0" name="Interval (seconds)">TiempoDisparo-ExtraShoot</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="9763152424904158" type="Function">
+                            <param id="0" name="Name">&quot;Disparo&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="7216612047822848" title="Damage.">
+            <sub-events>
+                <event-block sid="4613978867192565">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3435528082945633" type="Enemigo">
+                            <param id="0" name="Object">Disparo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6869805046050289" type="Enemigo" />
+                        <action id="-9" name="Destroy" sid="1521317679707941" type="Disparo" />
+                        <action id="0" name="Call function" sid="6613450222819617" type="Function">
+                            <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
+                            <param id="1" name="Parameter {n}">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="792126219499657">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5632882890738915" type="Enemigo">
+                            <param id="0" name="Object">Nave</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8469338378724449" type="Nave" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2926270262877847" type="Function">
+                            <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6860301040077632" type="Enemigo" />
+                    </actions>
+                </event-block>
+                <event-block sid="7626722666996718">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5912133037172004" type="Enemigo">
+                            <param id="0" name="Object">Final</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="1311054336177779" type="Nave" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="3432962828478982" type="Function">
+                            <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7234366744330771" type="Enemigo" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3459116726697512" title="Power up">
+            <sub-events>
+                <event-block sid="6446552084448822">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8538074575905452" type="SpeedUp">
+                            <param id="0" name="Object">Nave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7625406123216511" type="Function">
+                            <param id="0" name="Name">&quot;Powerup&quot;</param>
+                            <param id="1" name="Parameter {n}">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5486263888950609">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7772582290148814" type="Shootup">
+                            <param id="0" name="Object">Nave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1935059241446734" type="Function">
+                            <param id="0" name="Name">&quot;Powerup&quot;</param>
+                            <param id="1" name="Parameter {n}">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

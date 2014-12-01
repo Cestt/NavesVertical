@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Logica juego</name>
+    <events>
+        <variable constant="0" name="ActualTime" sid="1257841504744951" static="0" type="number">0</variable>
+        <variable constant="0" name="ExtraShoot" sid="8855317965712658" static="0" type="number">0</variable>
+        <variable constant="0" name="ExtraSpeed" sid="8890317120800269" static="0" type="number">0</variable>
+        <variable constant="0" name="ExtraSpawn" sid="7958047122109137" static="0" type="number">0</variable>
+        <variable constant="0" name="Puntos" sid="5329922290168523" static="0" type="number">0</variable>
+        <variable constant="0" name="StartTime" sid="4347930885095013" static="0" type="number">0</variable>
+        <variable constant="0" name="SpaceMove" sid="1502514304462233" static="0" type="number">0.01</variable>
+        <event-block sid="3529105060969139">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7407239727795943" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="855282399403021" type="System">
+                    <param id="0" name="Variable">StartTime</param>
+                    <param id="1" name="Value">round(time)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5290081335227839">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="8301339340550016" type="System" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="6622514944704341" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="9661588372600626">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2988986483389986" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="4604028342721079" type="Function">
+                    <param id="0" name="Name">&quot;Tiempo&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="8265401506167217" title="Movimiento">
+            <sub-events>
+                <event-block sid="3516956612946523">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2607207069129019" type="Function">
+                            <param id="0" name="Name">&quot;Move Towards&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7010277633000791">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="2537306651463045" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Nave.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="5736487778560712" type="Nave">
+                                    <param id="0" name="X">Nave.X+LayoutWidth*SpaceMove</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4094501694903159">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="6859664108962194" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Nave.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="7543167430636394" type="Nave">
+                                    <param id="0" name="X">Nave.X-LayoutWidth*SpaceMove</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4711944850841284">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="4366900707814011" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Nave.y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="8180990529196769" type="Nave">
+                                    <param id="0" name="Y">Nave.y+LayoutWidth*SpaceMove</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3795256618396767">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="2511958307271414" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Nave.y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="7398431924652142" type="Nave">
+                                    <param id="0" name="Y">Nave.y-LayoutWidth*SpaceMove</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2736553542399301" title="Enemigos">
+            <sub-events>
+                <event-block sid="6830838751037732">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7544593084952594" type="System">
+                            <param id="0" name="Interval (seconds)">1.0-ExtraSpawn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2669254061515916" type="System">
+                            <param id="0" name="Object to create">Enemigo</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(5,LayoutWidth-5)</param>
+                            <param id="3" name="Y">-5</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="7734073032036537" type="Enemigo">
+                            <param id="0" name="Instance variable">Destroy</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="3939990964144563" type="Enemigo">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="7182566797468728" type="Enemigo">
+                            <param id="0" name="Speed">Enemigo.Bullet.Speed+ExtraSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="9673268738508547" title="Damage">
+            <sub-events>
+                <event-block sid="3608898896186306">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7918828182497839" type="Function">
+                            <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Flash" id="0" name="Flash" sid="2518358245904176" type="Nave">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2354480913236418">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="653637021578571" type="System">
+                                    <param id="0" name="Object">NaveVidas</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5706344765591599" type="NaveVidas">
+                                    <param id="0" name="Instance variable">Num</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Nave.Vidas-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="1511892472923134" type="NaveVidas" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="9420331496014818">
+                            <conditions />
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="2300470517823363" type="Nave">
+                                    <param id="0" name="Instance variable">Vidas</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9859309370959246">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9322060554993425" type="Nave">
+                                    <param id="0" name="Instance variable">Vidas</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="4188804337137775" type="Nave" />
+                                <action id="-13" name="Set time scale" sid="693543438956873" type="System">
+                                    <param id="0" name="Time scale">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="555750816720724" title="Armas">
+            <sub-events>
+                <event-block sid="2276181283995276">
+                    <conditions>
+                        <condition id="0" name="On function" sid="311643580273231" type="Function">
+                            <param id="0" name="Name">&quot;Disparo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="385551300282751" type="Nave">
+                            <param id="0" name="Object">Disparo</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="6994179515371337" type="Disparo">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6676210582774831" title="Puntuacion">
+            <sub-events>
+                <event-block sid="4045424036613837">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5542748131734435" type="Function">
+                            <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="257726393342456" type="System">
+                            <param id="0" name="Variable">Puntos</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8556165857889929" type="Puntuacion">
+                            <param id="0" name="Text">&quot;Puntuacion: &quot;&amp;Puntos&amp;newline&amp;&quot;Tiempo: &quot;&amp;ActualTime</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3538994894881241">
+                    <conditions>
+                        <condition id="0" name="On function" sid="9898177629843797" type="Function">
+                            <param id="0" name="Name">&quot;Tiempo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6605003341357492" type="System">
+                            <param id="0" name="Variable">ActualTime</param>
+                            <param id="1" name="Value">round(time)-StartTime</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6382275559967108" type="Puntuacion">
+                            <param id="0" name="Text">&quot;Puntuacion: &quot;&amp;Puntos&amp;newline&amp;&quot;Tiempo: &quot;&amp;ACtualTime</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2718186399057771" title="Dificultad">
+            <sub-events>
+                <event-block sid="3982142944626655">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3294972876377507" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6984590045955512">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8565754559875306" type="System">
+                                    <param id="0" name="Variable">ActualTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="9737595369122412" type="System">
+                                    <param id="0" name="Variable">ExtraSpeed</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8643218236425771">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5894912566462302" type="System">
+                                    <param id="0" name="Variable">ActualTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="2711869921632252" type="System">
+                                    <param id="0" name="Variable">ExtraSpawn</param>
+                                    <param id="1" name="Value">0.01</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4010150737864967" title="Power ups">
+            <sub-events>
+                <event-block sid="8085908587927499">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2809915743675523" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,25)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="3523407212511695" type="System">
+                            <param id="0" name="Object to create">SpeedUp</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(5,(LayoutWidth-5))</param>
+                            <param id="3" name="Y">-5</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="1099737015395924" type="SpeedUp">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8405946419837483">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="9926418356613671" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,25)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="7774569952398154" type="System">
+                            <param id="0" name="Object to create">Shootup</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(5,(LayoutWidth-5))</param>
+                            <param id="3" name="Y">-5</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="2863649514287929" type="Shootup">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="174054322456347">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7584141564756537" type="SpeedUp">
+                            <param id="0" name="Object">Final</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7623139808420041" type="SpeedUp" />
+                    </actions>
+                </event-block>
+                <event-block sid="9935662695005348">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6680515998207358" type="Function">
+                            <param id="0" name="Name">&quot;Powerup&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8358420971921063">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="6885943339434119" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="5855073073038671" type="System">
+                                    <param id="0" name="Variable">SpaceMove</param>
+                                    <param id="1" name="Value">0.001</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="6438961772530628" type="SpeedUp" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="4833098726232684">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="7880415743034519" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="9039620729558695" type="System">
+                                    <param id="0" name="Variable">ExtraShoot</param>
+                                    <param id="1" name="Value">0.001</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="2604271632344096" type="Shootup" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
