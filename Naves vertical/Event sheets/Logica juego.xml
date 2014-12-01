@@ -10,29 +10,49 @@
         <variable constant="0" name="Puntos" sid="5329922290168523" static="0" type="number">0</variable>
         <variable constant="0" name="StartTime" sid="4347930885095013" static="0" type="number">0</variable>
         <variable constant="0" name="SpaceMove" sid="1502514304462233" static="0" type="number">0.01</variable>
-        <event-block sid="3529105060969139">
+        <event-block sid="9813783597353578">
             <conditions>
-                <condition id="-2" name="On start of layout" sid="7407239727795943" type="System" />
+                <condition id="-2" name="On start of layout" sid="6913873759383826" type="System" />
             </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="855282399403021" type="System">
-                    <param id="0" name="Variable">StartTime</param>
-                    <param id="1" name="Value">round(time)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="5290081335227839">
-            <conditions>
-                <condition id="-3" name="On end of layout" sid="8301339340550016" type="System" />
-            </conditions>
-            <actions>
-                <action id="-21" name="Reset global variables" sid="6622514944704341" type="System" />
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="7137661599612554">
+                    <conditions>
+                        <condition id="3" inverted="1" name="Local key exists" sid="6905583067679725" type="WebStorage">
+                            <param id="0" name="Key">&quot;Score&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set local value" sid="4578918818191709" type="WebStorage">
+                            <param id="0" name="Key">&quot;Score&quot;</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8813174739500738">
+                    <conditions>
+                        <condition id="3" inverted="1" name="Local key exists" sid="6274402621408623" type="WebStorage">
+                            <param id="0" name="Key">&quot;Time&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set local value" sid="6322886419801149" type="WebStorage">
+                            <param id="0" name="Key">&quot;Time&quot;</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="9661588372600626">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="2988986483389986" type="System">
                     <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="7172469182340857" type="Start">
+                    <param id="0" name="Instance variable">Started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
                 </condition>
             </conditions>
             <actions>
@@ -85,7 +105,7 @@
                                 <condition id="1" name="Compare parameter" sid="4366900707814011" type="Function">
                                     <param id="0" name="Index">1</param>
                                     <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">Nave.y</param>
+                                    <param id="2" name="Value">Nave.y+LayoutWidth*0.1</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -99,7 +119,7 @@
                                 <condition id="1" name="Compare parameter" sid="2511958307271414" type="Function">
                                     <param id="0" name="Index">1</param>
                                     <param id="1" name="Comparison">2</param>
-                                    <param id="2" name="Value">Nave.y</param>
+                                    <param id="2" name="Value">Nave.y+LayoutWidth*0.1</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -117,18 +137,23 @@
                 <event-block sid="6830838751037732">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="7544593084952594" type="System">
-                            <param id="0" name="Interval (seconds)">1.0-ExtraSpawn</param>
+                            <param id="0" name="Interval (seconds)">0.8-ExtraSpawn</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="1376878038939541" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="2669254061515916" type="System">
                             <param id="0" name="Object to create">Enemigo</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">random(5,LayoutWidth-5)</param>
+                            <param id="2" name="X">random(15,LayoutWidth-15)</param>
                             <param id="3" name="Y">-5</param>
                         </action>
                         <action id="-10" name="Set value" sid="7734073032036537" type="Enemigo">
-                            <param id="0" name="Instance variable">Destroy</param>
+                            <param id="0" name="Instance variable">toDestroy</param>
                             <param id="1" name="Value">1</param>
                         </action>
                         <action behavior="Bullet" id="5" name="Set enabled" sid="3939990964144563" type="Enemigo">
@@ -169,7 +194,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="1511892472923134" type="NaveVidas" />
+                                <action id="-15" name="Set visible" sid="1511892472923134" type="NaveVidas">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="9420331496014818">
@@ -185,14 +212,132 @@
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="9322060554993425" type="Nave">
                                     <param id="0" name="Instance variable">Vidas</param>
-                                    <param id="1" name="Comparison">2</param>
+                                    <param id="1" name="Comparison">3</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="4188804337137775" type="Nave" />
-                                <action id="-13" name="Set time scale" sid="693543438956873" type="System">
-                                    <param id="0" name="Time scale">0</param>
+                                <action id="0" name="Call function" sid="8273212976248097" type="Function">
+                                    <param id="0" name="Name">&quot;Destroy&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8002463952771925">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1092640520060434" type="Function">
+                            <param id="0" name="Name">&quot;Destroy&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="693543438956873" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="5196297785365329" type="Start">
+                            <param id="0" name="X">Start.InitX</param>
+                            <param id="1" name="Y">Start.InitY</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7918390011110749" type="Start">
+                            <param id="0" name="Text">&quot;Reset&quot;</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="980782622573335" type="Nave">
+                            <param id="0" name="X">Nave.InitX</param>
+                            <param id="1" name="Y">Nave.InitY</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3582099221111295" type="Nave">
+                            <param id="0" name="Instance variable">Vidas</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4569729324569467">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="9129163421923842" type="System">
+                                    <param id="0" name="Object">NaveVidas</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9350724823729296" type="NaveVidas">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8660580716518503">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="9509962565161707" type="System">
+                                    <param id="0" name="Object">Enemys</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1479343483645033" type="Enemys">
+                                    <param id="0" name="Instance variable">toDestroy</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="3070357029079164" type="Enemys" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="1583998925838395">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="3870592935602894" type="System">
+                                    <param id="0" name="Object">PowerUps</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5206714671740511" type="PowerUps">
+                                    <param id="0" name="Instance variable">toDestroy</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="4010403642411042" type="PowerUps" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="2260162061558382">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="8054111408893771" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Score&quot;</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Puntos</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="6007713045380615" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Score&quot;</param>
+                                    <param id="1" name="Value">Puntos</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2227616745827366">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="3085458161869733" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Time&quot;</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">ActualTime</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="5204868098101477" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Time&quot;</param>
+                                    <param id="1" name="Value">ActualTime</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8225330056723033">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Set position" sid="2016706353647635" type="Puntuacion">
+                                    <param id="0" name="X">Start.X</param>
+                                    <param id="1" name="Y">Start.Y+LayoutWidth*0.2</param>
+                                </action>
+                                <action id="0" name="Set text" sid="3842948950954384" type="Puntuacion">
+                                    <param id="0" name="Text">&quot;Score: &quot;&amp;Puntos&amp;&quot;   HighScore: &quot;&amp;WebStorage.LocalValue(&quot;Score&quot;)&amp;newline&amp;&quot;Time: &quot;&amp;ActualTime&amp;&quot;   Best time: &quot;&amp;WebStorage.LocalValue(&quot;Time&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="1377248875146353" type="System">
+                                    <param id="0" name="Variable">Puntos</param>
+                                    <param id="1" name="Value">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -212,7 +357,7 @@
                         <action id="0" name="Spawn another object" sid="385551300282751" type="Nave">
                             <param id="0" name="Object">Disparo</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="Image point">0</param>
+                            <param id="2" name="Image point">1</param>
                         </action>
                         <action behavior="Bullet" id="5" name="Set enabled" sid="6994179515371337" type="Disparo">
                             <param id="0" name="State">1</param>
@@ -264,6 +409,11 @@
                         <condition id="-6" name="Every X seconds" sid="3294972876377507" type="System">
                             <param id="0" name="Interval (seconds)">1.0</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="2791996292451456" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                     </conditions>
                     <actions />
                     <sub-events>
@@ -278,7 +428,7 @@
                             <actions>
                                 <action id="-10" name="Add to" sid="9737595369122412" type="System">
                                     <param id="0" name="Variable">ExtraSpeed</param>
-                                    <param id="1" name="Value">1</param>
+                                    <param id="1" name="Value">1.5</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -293,7 +443,7 @@
                             <actions>
                                 <action id="-10" name="Add to" sid="2711869921632252" type="System">
                                     <param id="0" name="Variable">ExtraSpawn</param>
-                                    <param id="1" name="Value">0.01</param>
+                                    <param id="1" name="Value">0.02</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -308,6 +458,11 @@
                         <condition id="-6" name="Every X seconds" sid="2809915743675523" type="System">
                             <param id="0" name="Interval (seconds)">random(5,25)</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="6607653585901072" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="3523407212511695" type="System">
@@ -319,12 +474,21 @@
                         <action behavior="Bullet" id="5" name="Set enabled" sid="1099737015395924" type="SpeedUp">
                             <param id="0" name="State">1</param>
                         </action>
+                        <action id="-10" name="Set value" sid="7767481145885164" type="SpeedUp">
+                            <param id="0" name="Instance variable">toDestroy</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="8405946419837483">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="9926418356613671" type="System">
                             <param id="0" name="Interval (seconds)">random(5,25)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="7480482170285791" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -336,6 +500,10 @@
                         </action>
                         <action behavior="Bullet" id="5" name="Set enabled" sid="2863649514287929" type="Shootup">
                             <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8425915685868096" type="Shootup">
+                            <param id="0" name="Instance variable">toDestroy</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>

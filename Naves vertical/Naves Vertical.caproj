@@ -10,10 +10,12 @@
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>18602</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -49,6 +51,8 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Vidas" sid="5435416021266588" type="number" />
+                <instance-variable name="InitX" sid="7331002076871201" type="number" />
+                <instance-variable name="InitY" sid="2831165097612393" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Flash" sid="9675052347174438">
@@ -57,7 +61,9 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9442860544373161" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="Imagepoint 1" x="1.004" y="0.5" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -103,9 +109,6 @@
         </object-type>
         <object-type name="Enemigo" sid="2023481702378077">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="Destroy" sid="2487445347696996" type="number" />
-            </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="6690732849755696">
                     <behavior id="Bullet" />
@@ -119,6 +122,10 @@
         </object-type>
         <object-type name="Puntuacion" sid="3922901487726757">
             <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="InitX" sid="9093510663041157" type="number" />
+                <instance-variable name="InitY" sid="756959507442696" type="number" />
+            </instance-variables>
         </object-type>
         <object-type name="Final" sid="4366940093050834">
             <plugin id="Sprite" />
@@ -154,8 +161,37 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Start" sid="5832540987919807">
+            <plugin id="Button" />
+            <instance-variables>
+                <instance-variable name="Started" sid="3387101043113579" type="number" />
+                <instance-variable name="InitX" sid="4431773597809165" type="number" />
+                <instance-variable name="InitY" sid="7004892035996114" type="number" />
+            </instance-variables>
+        </object-type>
+        <object-type name="WebStorage" sid="9090901788278582">
+            <plugin id="WebStorage" />
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="Enemys" plugin-id="Sprite" sid="7285349512689922">
+            <members>
+                <member>Enemigo</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="toDestroy" sid="8060353403302263" type="number" />
+            </instance-variables>
+        </family>
+        <family name="PowerUps" plugin-id="Sprite" sid="8659103529063499">
+            <members>
+                <member>Shootup</member>
+                <member>SpeedUp</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="toDestroy" sid="3393035554542124" type="number" />
+            </instance-variables>
+        </family>
+    </families>
     <layout-folder>
         <layout>Nivel.xml</layout>
     </layout-folder>
@@ -170,6 +206,7 @@
             </properties>
         </global-instance>
         <global-instance type="Function" uid="2" />
+        <global-instance type="WebStorage" uid="13" />
     </global-instances>
     <sounds-folder />
     <music-folder />
