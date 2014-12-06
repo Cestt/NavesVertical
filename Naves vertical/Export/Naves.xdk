@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "96f1c05b-455f-4c7b-b7b9-b7ecd1ec2d29",
-      "lastModifiedDate": 1416677335646,
+      "lastModifiedDate": 1417906375863,
       "creationDate": 1416677277354
     },
     "sourceDirectory": "",
@@ -37,6 +37,17 @@
         "selectedState": "Auto",
         "data": {},
         "paramvals": {}
+      },
+      {
+        "id": "com.cranberrygame.phonegap.plugin.ad.admob",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "custom": "true",
+        "name": "AdMob",
+        "origin": "com.cranberrygame.phonegap.plugin.ad.admob",
+        "originType": "cordova.io"
       }
     ],
     "serviceMethods": [],

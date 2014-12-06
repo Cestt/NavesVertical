@@ -8,8 +8,10 @@
 <content src="index.html"/>
 <access origin="*"/>
 <intelxdk:plugin intelxdk:name="Device" intelxdk:value="org.apache.cordova.device" intelxdk:version="0.2.9"/>
+<intelxdk:plugin intelxdk:name="AdMob" intelxdk:value="com.cranberrygame.phonegap.plugin.ad.admob"/>
 <preference name="android-minSdkVersion" value="14"/>
 <preference name="android-targetSdkVersion" value="19"/>
 <preference name="android-installLocation" value="auto"/>
 <intelxdk:crosswalk version="stable"/>
-<!--creationInfo:{"src":"","projectTypeName":"com.intel.xdk.projecttype.jsapp"}--></widget>
+<!--creationInfo:{"src":"","projectTypeName":"com.intel.xdk.projecttype.jsapp"}-->
+<intelxdk:plugin xmlns:intelxdk="http://xdk.intel.com/ns/v1" intelxdk:name="org.apache.cordova.inappbrowser" intelxdk:value="org.apache.cordova.inappbrowser"/></widget>

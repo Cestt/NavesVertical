@@ -39,6 +39,7 @@
                         <Vidas>3</Vidas>
                         <InitX>0</InitX>
                         <InitY>0</InitY>
+                        <Multis>0</Multis>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Flash" />
@@ -47,7 +48,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>365</x>
-                        <y>1162</y>
+                        <y>1055</y>
                         <z>0</z>
                         <width>63.213924408</width>
                         <height>63.213924408</height>
@@ -72,7 +73,7 @@
                                 <acceleration>0</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>No</set-angle>
+                                <set-angle>Yes</set-angle>
                                 <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -88,7 +89,7 @@
                         <height>-5</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>1</hotspotY>
                         <angle>-1.57079649</angle>
                         <opacity>1</opacity>
                     </world>
@@ -224,11 +225,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>429</x>
+                        <x>396</x>
                         <y>20</y>
                         <z>0</z>
-                        <width>278</width>
-                        <height>74</height>
+                        <width>311</width>
+                        <height>131</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -359,6 +360,69 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="Nuke" uid="14">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Initx>0</Initx>
+                        <InitY>0</InitY>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>669</x>
+                        <y>1086</y>
+                        <z>0</z>
+                        <width>79.082237244</width>
+                        <height>79.082237244</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Multishoot" uid="15">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <toDestroy>0</toDestroy>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>150</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-368.679016113</x>
+                        <y>808.670532227</y>
+                        <z>0</z>
+                        <width>72</width>
+                        <height>72</height>
+                        <depth>0</depth>
+                        <hotspotX>0.479999989</hotspotX>
+                        <hotspotY>0.540000021</hotspotY>
+                        <angle>1.570796371</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>

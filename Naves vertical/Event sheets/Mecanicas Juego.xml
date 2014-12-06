@@ -34,6 +34,14 @@
                     <param id="0" name="Instance variable">InitY</param>
                     <param id="1" name="Value">Puntuacion.Y</param>
                 </action>
+                <action id="-10" name="Set value" sid="5572222742777797" type="Nuke">
+                    <param id="0" name="Instance variable">Initx</param>
+                    <param id="1" name="Value">nuke.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="8946493006877103" type="Nuke">
+                    <param id="0" name="Instance variable">InitY</param>
+                    <param id="1" name="Value">nuke.Y</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="9909990882782775">
@@ -57,6 +65,10 @@
                     <param id="0" name="X">Puntuacion.InitX</param>
                     <param id="1" name="Y">Puntuacion.InitY</param>
                 </action>
+                <action id="-3" name="Set position" sid="4641467658300651" type="Nuke">
+                    <param id="0" name="X">Nuke.Initx</param>
+                    <param id="1" name="Y">Nuke.InitY</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="1341068005347781">
@@ -66,6 +78,9 @@
                     <param id="0" name="Instance variable">Started</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="4" inverted="1" name="Is touching object" sid="7982160742816988" type="Touch">
+                    <param id="0" name="Object">Nuke</param>
                 </condition>
             </conditions>
             <actions />
@@ -92,9 +107,26 @@
                     <actions>
                         <action id="0" name="Call function" sid="9763152424904158" type="Function">
                             <param id="0" name="Name">&quot;Disparo&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                            <param id="1" name="Parameter {n}">0</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="2541742317129654">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="550641746975836" type="System">
+                                    <param id="0" name="Variable">ActualTime</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Nave.Multis</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="1043248409896902" type="Function">
+                                    <param id="0" name="Name">&quot;Disparo&quot;</param>
+                                    <param id="1" name="Parameter {n}">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -160,6 +192,7 @@
                             <param id="0" name="Name">&quot;Powerup&quot;</param>
                             <param id="1" name="Parameter {n}">0</param>
                         </action>
+                        <action id="-9" name="Destroy" sid="2923797531754106" type="SpeedUp" />
                     </actions>
                 </event-block>
                 <event-block sid="5486263888950609">
@@ -172,6 +205,43 @@
                         <action id="0" name="Call function" sid="1935059241446734" type="Function">
                             <param id="0" name="Name">&quot;Powerup&quot;</param>
                             <param id="1" name="Parameter {n}">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1405487683740051" type="Shootup" />
+                    </actions>
+                </event-block>
+                <event-block sid="1348052200469048">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9170775476956182" type="Multishoot">
+                            <param id="0" name="Object">Nave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1207470277471919" type="Function">
+                            <param id="0" name="Name">&quot;Powerup&quot;</param>
+                            <param id="1" name="Parameter {n}">2</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5459719496698986" type="Multishoot" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="383057955916607" title="Nuke.">
+            <sub-events>
+                <event-block sid="3452272175736563">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="1476927159594321" type="Touch">
+                            <param id="0" name="Object">Nuke</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="9079025341716783" type="Start">
+                            <param id="0" name="Instance variable">Started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5462390685597428" type="Function">
+                            <param id="0" name="Name">&quot;Nuke&quot;</param>
+                            <param id="1" name="Parameter {n}">0</param>
                         </action>
                     </actions>
                 </event-block>

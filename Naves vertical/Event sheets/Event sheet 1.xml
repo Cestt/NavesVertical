@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="4953836714841444">
+            <conditions>
+                <condition id="-3" name="Is on-screen" sid="1854740394971205" type="All" />
+            </conditions>
+            <actions>
+                <action id="11" name="Set collisions enabled" sid="4758741075801039" type="All">
+                    <param id="0" name="Collisions">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4223111864601026">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="4430760297846921" type="All" />
+            </conditions>
+            <actions>
+                <action id="11" name="Set collisions enabled" sid="1035409466440681" type="All">
+                    <param id="0" name="Collisions">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -10,9 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout>Nivel</layout>
+        <layout active="1">Nivel</layout>
         <event-sheet>Mecanicas Juego</event-sheet>
-        <event-sheet active="1">Logica juego</event-sheet>
+        <event-sheet>Logica juego</event-sheet>
+        <event-sheet>Event sheet 1</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -23,6 +24,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1">
         <family expanded="0" name="Enemys" />
         <family expanded="0" name="PowerUps" />
+        <family expanded="0" name="All" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
@@ -39,5 +41,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Final/" />
         <folder expanded="1" path="animation-folder/SpeedUp/" />
         <folder expanded="1" path="animation-folder/Shootup/" />
+        <folder expanded="1" path="animation-folder/Nuke/" />
+        <folder expanded="1" path="animation-folder/Multishoot/" />
     </folders-expanded>
 </c2uistate>

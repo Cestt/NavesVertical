@@ -16,6 +16,7 @@
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
+        <plugin author="Scirra" id="admob" version="1">Admob Ads</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -53,6 +54,7 @@
                 <instance-variable name="Vidas" sid="5435416021266588" type="number" />
                 <instance-variable name="InitX" sid="7331002076871201" type="number" />
                 <instance-variable name="InitY" sid="2831165097612393" type="number" />
+                <instance-variable name="Multis" sid="7080882035702341" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Flash" sid="9675052347174438">
@@ -85,7 +87,7 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5218919520866057" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
                         <collision-poly>
                             <point x="0" y="1" />
                             <point x="0" y="0" />
@@ -172,6 +174,44 @@
         <object-type name="WebStorage" sid="9090901788278582">
             <plugin id="WebStorage" />
         </object-type>
+        <object-type name="Nuke" sid="353285808689191">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Initx" sid="6881026436687186" type="number" />
+                <instance-variable name="InitY" sid="9004487538255282" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2297658333190792" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Multishoot" sid="3908723282103806">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="toDestroy" sid="9439547205150052" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="7362958217062345">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5122950305653767" speed="5">
+                    <frame duration="1" hotspotX="0.48" hotspotY="0.54">
+                        <collision-poly>
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="AdmobAds" sid="2789401949823303">
+            <plugin id="admob" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemys" plugin-id="Sprite" sid="7285349512689922">
@@ -191,6 +231,18 @@
                 <instance-variable name="toDestroy" sid="3393035554542124" type="number" />
             </instance-variables>
         </family>
+        <family name="All" plugin-id="Sprite" sid="2901108284628966">
+            <members>
+                <member>Disparo</member>
+                <member>Enemigo</member>
+                <member>Final</member>
+                <member>Nave</member>
+                <member>NaveVidas</member>
+                <member>Nuke</member>
+                <member>Shootup</member>
+                <member>SpeedUp</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout>Nivel.xml</layout>
@@ -198,6 +250,7 @@
     <event-folder>
         <event-sheet>Mecanicas Juego.xml</event-sheet>
         <event-sheet>Logica juego.xml</event-sheet>
+        <event-sheet>Event sheet 1.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="1">
@@ -207,6 +260,21 @@
         </global-instance>
         <global-instance type="Function" uid="2" />
         <global-instance type="WebStorage" uid="13" />
+        <global-instance type="AdmobAds" uid="16">
+            <properties>
+                <overlap>Yes</overlap>
+                <test-mode>True</test-mode>
+                <android></android>
+                <banner-id-android>ca-app-pub-5272281823516789/3860535158</banner-id-android>
+                <interstitial-id-android></interstitial-id-android>
+                <ios></ios>
+                <banner-id-ios></banner-id-ios>
+                <interstitial-id-ios></interstitial-id-ios>
+                <windows-phone></windows-phone>
+                <banner-id-wp8></banner-id-wp8>
+                <interstitial-id-wp8></interstitial-id-wp8>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder />
     <music-folder />
