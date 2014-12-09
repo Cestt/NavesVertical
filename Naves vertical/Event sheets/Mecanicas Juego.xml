@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Mecanicas Juego</name>
     <events>
-        <variable constant="0" name="TiempoDisparo" sid="8722501392253207" static="0" type="number">0.2</variable>
+        <variable constant="0" name="TiempoDisparo" sid="8722501392253207" static="0" type="number">0.3</variable>
         <include>Logica juego</include>
         <event-block sid="5210472036487697">
             <conditions>

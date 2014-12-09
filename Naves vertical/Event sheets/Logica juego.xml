@@ -135,7 +135,7 @@
                         <action id="-3" name="Create object" sid="2669254061515916" type="System">
                             <param id="0" name="Object to create">Enemigo</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">random(15,LayoutWidth-15)</param>
+                            <param id="2" name="X">random(25,LayoutWidth-25)</param>
                             <param id="3" name="Y">-5</param>
                         </action>
                         <action id="-10" name="Set value" sid="7734073032036537" type="Enemigo">
@@ -503,15 +503,14 @@
                         <action id="-3" name="Create object" sid="544185367446375" type="System">
                             <param id="0" name="Object to create">Multishoot</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">random(5,(LayoutWidth-5))</param>
+                            <param id="2" name="X">LayoutWidth/2</param>
                             <param id="3" name="Y">-5</param>
+                        </action>
+                        <action behavior="Sine" id="2" name="Set magnitude" sid="9640559650108589" type="Multishoot">
+                            <param id="0" name="Magnitude">LayoutWidth/2</param>
                         </action>
                         <action behavior="Bullet" id="5" name="Set enabled" sid="1402089076083497" type="Multishoot">
                             <param id="0" name="State">1</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="4435228439036028" type="Multishoot">
-                            <param id="0" name="Instance variable">toDestroy</param>
-                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>

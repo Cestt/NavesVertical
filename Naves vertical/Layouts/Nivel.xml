@@ -69,7 +69,7 @@
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
-                                <speed>500</speed>
+                                <speed>625</speed>
                                 <acceleration>0</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
@@ -82,13 +82,13 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-504</x>
-                        <y>703</y>
+                        <x>-444</x>
+                        <y>697</y>
                         <z>0</z>
-                        <width>26</width>
-                        <height>-5</height>
+                        <width>25</width>
+                        <height>-11</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
+                        <hotspotX>0.521739125</hotspotX>
                         <hotspotY>1</hotspotY>
                         <angle>-1.57079649</angle>
                         <opacity>1</opacity>
@@ -190,17 +190,30 @@
                                 <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>1</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-504.890136719</x>
-                        <y>627.890136719</y>
+                        <x>-422</x>
+                        <y>583</y>
                         <z>0</z>
-                        <width>26.98147583</width>
-                        <height>26.98147583</height>
+                        <width>63.686351776</width>
+                        <height>71.538093567</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
+                        <hotspotX>0.493150681</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>1.570796371</angle>
                         <opacity>1</opacity>
@@ -376,14 +389,14 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>669</x>
-                        <y>1086</y>
+                        <x>670</x>
+                        <y>1059</y>
                         <z>0</z>
-                        <width>79.082237244</width>
-                        <height>79.082237244</height>
+                        <width>70</width>
+                        <height>70</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0.508196712</hotspotX>
+                        <hotspotY>0.508196712</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -409,18 +422,31 @@
                                 <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-368.679016113</x>
-                        <y>808.670532227</y>
+                        <x>-449</x>
+                        <y>797</y>
                         <z>0</z>
-                        <width>72</width>
-                        <height>72</height>
+                        <width>40.651058197</width>
+                        <height>41.35193634</height>
                         <depth>0</depth>
-                        <hotspotX>0.479999989</hotspotX>
-                        <hotspotY>0.540000021</hotspotY>
+                        <hotspotX>0.534482777</hotspotX>
+                        <hotspotY>0.525423706</hotspotY>
                         <angle>1.570796371</angle>
                         <opacity>1</opacity>
                     </world>
