@@ -79,9 +79,6 @@
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
                 </condition>
-                <condition id="4" inverted="1" name="Is touching object" sid="7982160742816988" type="Touch">
-                    <param id="0" name="Object">Nuke</param>
-                </condition>
             </conditions>
             <actions />
             <sub-events>
@@ -132,51 +129,155 @@
         </event-block>
         <event-group description="" sid="7216612047822848" title="Damage.">
             <sub-events>
-                <event-block sid="4613978867192565">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="3435528082945633" type="Enemigo">
-                            <param id="0" name="Object">Disparo</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="6869805046050289" type="Enemigo" />
-                        <action id="-9" name="Destroy" sid="1521317679707941" type="Disparo" />
-                        <action id="0" name="Call function" sid="6613450222819617" type="Function">
-                            <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
-                            <param id="1" name="Parameter {n}">10</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="792126219499657">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="5632882890738915" type="Enemigo">
-                            <param id="0" name="Object">Nave</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8469338378724449" type="Nave" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="2926270262877847" type="Function">
-                            <param id="0" name="Name">&quot;DamageNave&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action id="-9" name="Destroy" sid="6860301040077632" type="Enemigo" />
-                    </actions>
-                </event-block>
-                <event-block sid="7626722666996718">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="5912133037172004" type="Enemigo">
-                            <param id="0" name="Object">Final</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="1311054336177779" type="Nave" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="3432962828478982" type="Function">
-                            <param id="0" name="Name">&quot;DamageNave&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action id="-9" name="Destroy" sid="7234366744330771" type="Enemigo" />
-                    </actions>
-                </event-block>
+                <event-group description="" sid="7153594698087919" title="Nave">
+                    <sub-events>
+                        <event-block sid="792126219499657">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="5632882890738915" type="Enemigo0">
+                                    <param id="0" name="Object">Nave</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8469338378724449" type="Nave" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="2926270262877847" type="Function">
+                                    <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="6860301040077632" type="Enemigo0" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="5599243384222421">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="8675296908216083" type="Enemigo1">
+                                    <param id="0" name="Object">Nave</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="5672696772703083" type="Nave" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="8200770890747543" type="Function">
+                                    <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="1987937352091694" type="Enemigo1" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="2765113329506354">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="3769362881784134" type="Enemigo2">
+                                    <param id="0" name="Object">Nave</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="2303927387356467" type="Nave" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="8226532685473458" type="Function">
+                                    <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="5850469775778445" type="Enemigo2" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="2740981585277104" title="Disparo">
+                    <sub-events>
+                        <event-block sid="4613978867192565">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="3435528082945633" type="Enemigo0">
+                                    <param id="0" name="Object">Disparo</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="6869805046050289" type="Enemigo0" />
+                                <action id="-9" name="Destroy" sid="1521317679707941" type="Disparo" />
+                                <action id="0" name="Call function" sid="6613450222819617" type="Function">
+                                    <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
+                                    <param id="1" name="Parameter {n}">10</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="789642834609795">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="7851156700835692" type="Enemigo1">
+                                    <param id="0" name="Object">Disparo</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="8716278144888606" type="Disparo" />
+                                <action id="-12" name="Subtract from" sid="9456383446265371" type="Enemigo1">
+                                    <param id="0" name="Instance variable">Vida</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="8616191693039181">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="8720223777532667" type="Enemigo1">
+                                            <param id="0" name="Instance variable">Vida</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="770926958028037" type="Enemigo1" />
+                                        <action id="0" name="Call function" sid="4547137247650656" type="Function">
+                                            <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
+                                            <param id="1" name="Parameter {n}">20</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3805258419267825">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="4394874257136095" type="Enemigo2">
+                                    <param id="0" name="Object">Disparo</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="9093858820631296" type="Enemigo2" />
+                                <action id="-9" name="Destroy" sid="5297026682186759" type="Disparo" />
+                                <action id="0" name="Call function" sid="5858737171140624" type="Function">
+                                    <param id="0" name="Name">&quot;SumarPuntos&quot;</param>
+                                    <param id="1" name="Parameter {n}">30</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="4133726071001405" title="Final">
+                    <sub-events>
+                        <event-block sid="7626722666996718">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="5912133037172004" type="Enemigo0">
+                                    <param id="0" name="Object">Final</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="1311054336177779" type="Nave" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="3432962828478982" type="Function">
+                                    <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="7234366744330771" type="Enemigo0" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="5288962087214478">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="2524436979743007" type="Enemigo1">
+                                    <param id="0" name="Object">Final</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8363080060596335" type="Nave" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="7005246197637215" type="Function">
+                                    <param id="0" name="Name">&quot;DamageNave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="2937218597319752" type="Enemigo1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
         <event-group description="" sid="3459116726697512" title="Power up">

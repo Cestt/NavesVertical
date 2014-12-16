@@ -110,7 +110,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Enemigo" sid="2023481702378077">
+        <object-type name="Enemigo0" sid="2023481702378077">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Bullet" sid="6690732849755696">
@@ -222,11 +222,49 @@
         <object-type name="AdmobAds" sid="2789401949823303">
             <plugin id="admob" />
         </object-type>
+        <object-type name="Enemigo1" sid="5604324349680829">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vida" sid="7789026296367642" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="3488542834612487">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="660545545212956" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Enemigo2" sid="365849473376184">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="3947333562219754">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3571839213827768" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemys" plugin-id="Sprite" sid="7285349512689922">
             <members>
-                <member>Enemigo</member>
+                <member>Enemigo0</member>
+                <member>Enemigo1</member>
+                <member>Enemigo2</member>
             </members>
             <instance-variables>
                 <instance-variable name="toDestroy" sid="8060353403302263" type="number" />
@@ -245,7 +283,7 @@
         <family name="All" plugin-id="Sprite" sid="2901108284628966">
             <members>
                 <member>Disparo</member>
-                <member>Enemigo</member>
+                <member>Enemigo0</member>
                 <member>Final</member>
                 <member>Nave</member>
                 <member>NaveVidas</member>
