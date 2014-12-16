@@ -258,6 +258,23 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Background" sid="4587382077335452">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7425938125583684" speed="5">
+                    <frame duration="1" hotspotX="0.500675" hotspotY="0.5" original-source="C:\Users\usuario\Desktop\MANUEL\Repositorio\Nave Verticales\trunk\Naves vertical\Art\UI\Background.png">
+                        <collision-poly>
+                            <point x="0.071525" y="0.042811" />
+                            <point x="0.928475" y="0.042811" />
+                            <point x="1" y="0.5" />
+                            <point x="0.979757" y="0.987884" />
+                            <point x="0.0202429" y="0.987884" />
+                            <point x="0.0121457" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemys" plugin-id="Sprite" sid="7285349512689922">
@@ -284,7 +301,10 @@
             <members>
                 <member>Disparo</member>
                 <member>Enemigo0</member>
+                <member>Enemigo1</member>
+                <member>Enemigo2</member>
                 <member>Final</member>
+                <member>Multishoot</member>
                 <member>Nave</member>
                 <member>NaveVidas</member>
                 <member>Nuke</member>
@@ -299,7 +319,7 @@
     <event-folder>
         <event-sheet>Mecanicas Juego.xml</event-sheet>
         <event-sheet>Logica juego.xml</event-sheet>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Optimizacion.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="1">

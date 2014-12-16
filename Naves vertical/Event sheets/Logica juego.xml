@@ -134,7 +134,7 @@
                     <actions>
                         <action id="-3" name="Create object" sid="2669254061515916" type="System">
                             <param id="0" name="Object to create">Enemigo0</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">2</param>
                             <param id="2" name="X">random(35,LayoutWidth-35)</param>
                             <param id="3" name="Y">-5</param>
                         </action>
@@ -164,7 +164,7 @@
                     <actions>
                         <action id="-3" name="Create object" sid="7534255252947862" type="System">
                             <param id="0" name="Object to create">Enemigo1</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">2</param>
                             <param id="2" name="X">random(25,LayoutWidth-25)</param>
                             <param id="3" name="Y">-5</param>
                         </action>
@@ -204,7 +204,7 @@
                             <actions>
                                 <action id="-3" name="Create object" sid="5608800982284149" type="System">
                                     <param id="0" name="Object to create">Enemigo2</param>
-                                    <param id="1" name="Layer">0</param>
+                                    <param id="1" name="Layer">2</param>
                                     <param id="2" name="X">random(25,LayoutWidth-25)</param>
                                     <param id="3" name="Y">-5</param>
                                 </action>
@@ -366,7 +366,7 @@
                             <actions>
                                 <action id="0" name="Spawn another object" sid="385551300282751" type="Nave">
                                     <param id="0" name="Object">Disparo</param>
-                                    <param id="1" name="Layer">0</param>
+                                    <param id="1" name="Layer">2</param>
                                     <param id="2" name="Image point">1</param>
                                 </action>
                                 <action behavior="Bullet" id="5" name="Set enabled" sid="6994179515371337" type="Disparo">
@@ -395,7 +395,7 @@
                                     <actions>
                                         <action id="0" name="Spawn another object" sid="8151480872520358" type="Nave">
                                             <param id="0" name="Object">Disparo</param>
-                                            <param id="1" name="Layer">0</param>
+                                            <param id="1" name="Layer">2</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
                                         <action behavior="Bullet" id="5" name="Set enabled" sid="1810396131223272" type="Disparo">
@@ -403,7 +403,7 @@
                                         </action>
                                         <action id="0" name="Spawn another object" sid="7234149364595583" type="Nave">
                                             <param id="0" name="Object">Disparo</param>
-                                            <param id="1" name="Layer">0</param>
+                                            <param id="1" name="Layer">2</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
                                         <action id="-8" name="Set angle" sid="3213013789470034" type="Disparo">
@@ -414,7 +414,7 @@
                                         </action>
                                         <action id="0" name="Spawn another object" sid="7922179153439737" type="Nave">
                                             <param id="0" name="Object">Disparo</param>
-                                            <param id="1" name="Layer">0</param>
+                                            <param id="1" name="Layer">2</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
                                         <action id="-8" name="Set angle" sid="8652053047868066" type="Disparo">
@@ -550,7 +550,7 @@
                     <actions>
                         <action id="-3" name="Create object" sid="3523407212511695" type="System">
                             <param id="0" name="Object to create">SpeedUp</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">2</param>
                             <param id="2" name="X">random(5,(LayoutWidth-5))</param>
                             <param id="3" name="Y">-5</param>
                         </action>
@@ -577,7 +577,7 @@
                     <actions>
                         <action id="-3" name="Create object" sid="544185367446375" type="System">
                             <param id="0" name="Object to create">Multishoot</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">2</param>
                             <param id="2" name="X">LayoutWidth/2</param>
                             <param id="3" name="Y">-5</param>
                         </action>
@@ -586,6 +586,10 @@
                         </action>
                         <action behavior="Bullet" id="5" name="Set enabled" sid="1402089076083497" type="Multishoot">
                             <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6645891618939131" type="Multishoot">
+                            <param id="0" name="Instance variable">toDestroy</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -603,7 +607,7 @@
                     <actions>
                         <action id="-3" name="Create object" sid="7774569952398154" type="System">
                             <param id="0" name="Object to create">Shootup</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">2</param>
                             <param id="2" name="X">random(5,(LayoutWidth-5))</param>
                             <param id="3" name="Y">-5</param>
                         </action>
